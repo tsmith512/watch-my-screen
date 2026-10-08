@@ -1,0 +1,43 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "watch-my-screen",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-10-07",
+	"observability": {
+		"enabled": true,
+		"traces": {
+			"enabled": true
+		}
+	},
+	"upload_source_maps": true,
+	"workers_dev": true,
+	"routes": [
+		{
+			"pattern": "watch-my-screen.tsmith.net",
+			"custom_domain": true
+		}
+	],
+	"vars": {
+		"CLEANUP_DELAY_SECONDS": "43200"
+	},
+	"assets": {
+		"directory": "./public",
+		"binding": "ASSETS",
+		"run_worker_first": ["/api/*"]
+	},
+	"queues": {
+		"producers": [
+			{
+				"queue": "watch-my-screen-cleanup",
+				"binding": "CLEANUP_QUEUE"
+			}
+		],
+		"consumers": [
+			{
+				"queue": "watch-my-screen-cleanup",
+				"max_batch_size": 10,
+				"max_batch_timeout": 30
+			}
+		]
+	}
+}

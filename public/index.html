@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Watch My Screen</title>
+		<link rel="stylesheet" href="/style.css" />
+	</head>
+	<body>
+		<main>
+			<h1>Watch My Screen</h1>
+			<div class="controls">
+				<button id="start" type="button">Start sharing</button>
+				<button id="stop" type="button" disabled>Stop sharing</button>
+			</div>
+			<p id="status" role="status">Ready to share a display.</p>
+			<section id="player-section" hidden>
+				<iframe
+					id="player"
+					title="Stream preview"
+					allow="autoplay; encrypted-media; picture-in-picture"
+					allowfullscreen
+				></iframe>
+			</section>
+			<p id="share-section" hidden>
+				Share: <a id="share-link" target="_blank" rel="noreferrer"></a>
+			</p>
+		</main>
+		<script type="module" src="/main.js"></script>
+	</body>
+</html>

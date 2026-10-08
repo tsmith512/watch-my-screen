@@ -1,0 +1,21 @@
+* { box-sizing: border-box; }
+
+body {
+	margin: 0;
+	background: #fff;
+	color: #111;
+	font-family: system-ui, sans-serif;
+}
+
+main {
+	width: min(100% - 2rem, 960px);
+	margin: 2rem auto;
+}
+
+h1 { margin: 0 0 1rem; font-size: 1.5rem; }
+.controls { display: flex; gap: .5rem; margin-bottom: 1rem; }
+button { padding: .5rem .75rem; }
+#status { min-height: 1.5rem; }
+#player-section { margin: 1rem 0; aspect-ratio: 16 / 9; background: #111; }
+#player { display: block; width: 100%; height: 100%; border: 0; }
+#share-link { overflow-wrap: anywhere; }
